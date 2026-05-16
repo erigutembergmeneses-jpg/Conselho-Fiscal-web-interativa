@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conselho Fiscal: Com domínio das contas</title>
+    <style>
+        /* CSS Reset & Variable Definitions */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg-color: #0d0d0d;
+            --container-bg: #141414;
+            --accent-color: #d4af37; /* Metallic Gold for prestige */
+            --text-primary: #ffffff;
+            --text-secondary: #aaaaaa;
+            --text-muted: #666666;
+            --border-color: #262626;
+            --font-serif: 'Playfair Display', 'Georgia', serif;
+            --font-sans: 'Inter', '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px 15px;
+        }
+
+        /* Mobile-optimized Container (Carrd style) */
+        .wrapper {
+            width: 100%;
+            max-width: 450px;
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 40px 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+            text-align: center;
+        }
+
+        /* Typography & Structure */
+        .header-section {
+            margin-bottom: 35px;
+        }
+
+        .book-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-family: var(--font-serif);
+            font-size: 1.95rem;
+            font-weight: 700;
+            line-height: 1.25;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.05rem;
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+        }
+
+        /* Audio Element Styling */
+        .audio-box {
+            background: #1a1a1a;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px 15px;
+            margin-bottom: 35px;
+        }
+
+        .audio-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        audio {
+            width: 100%;
+            outline: none;
+        }
+
+        .audio-caption {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 10px;
+            display: block;
+        }
+
+        /* Quote Section */
+        .quote-box {
+            border-left: 2px solid var(--accent-color);
+            padding-left: 15px;
+            text-align: left;
+            margin: 30px 0;
+        }
+
+        .quote-text {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            font-style: italic;
+            color: #dddddd;
+            line-height: 1.5;
+        }
+
+        .quote-author {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Profile Persona Segments */
+        .profiles-section {
+            text-align: left;
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .profile-card {
+            margin-bottom: 22px;
+        }
+
+        .profile-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .profile-card p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.45;
+        }
+
+        /* Buttons/Links List */
+        .links-section {
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            background-color: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            padding: 14px 20px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            text-align: left;
+            position: relative;
+        }
+
+        .btn:hover {
+            border-color: var(--accent-color);
+            background-color: rgba(212, 175, 55, 0.03);
+        }
+
+        .btn-icon {
+            float: right;
+            color: var(--accent-color);
+        }
+
+        /* Call To Action (Main Purchase Button) */
+        .cta-btn {
+            display: block;
+            width: 100%;
+            background-color: var(--accent-color);
+            color: #000000;
+            border: none;
+            padding: 16px 20px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+            transition: transform 0.2s ease, opacity 0.2s ease;
+            margin-bottom: 35px;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.95;
+        }
+
+        /* Footer Notes */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 25px;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        footer p {
+            margin-bottom: 6px;
+        }
+
+        /* Minimal Divider Line */
+        .divider {
+            height: 1px;
+            background-color: var(--border-color);
+            margin: 35px 0;
+            border: none;
+        }
+    </style>
+    <!-- Importing elegant serif font natively via system-fallback safe implementation or webfont if needed -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="wrapper">
+        
+        <!-- Header Principal -->
+        <header class="header-section">
+            <span class="book-badge">2ª Edição Atualizada • 2026</span>
+            <h1>CONSELHO FISCAL</h1>
+            <p class="subtitle">Com domínio das contas</p>
+        </header>
+
+        <!-- Player de Áudio Imersivo -->
+        <div class="audio-box">
+            <p class="audio-label">🔊 Mensagem Exclusiva do Autor</p>
+            <!-- O link de áudio pode ser substituído pela URL direta final (.mp3) hospedada no Internet Archive ou GitHub -->
+            <audio controls>
+                <source src="https://archive.org/download/sample_audio_test/sample.mp3" type="audio/mpeg">
+                Seu navegador não suporta o elemento de áudio.
+            </audio>
+            <span class="audio-caption">Aperte o play para ouvir a apresentação do ecossistema e o prefácio da obra.</span>
+        </div>
+
+        <!-- Citação Âncora da Obra -->
+        <div class="quote-box">
+            <p class="quote-text">"A desconfiança moderada é, às vezes, proveitosa; nunca o é, porém, a desconfiança excessiva."</p>
+            <p class="quote-author">— Silvio Pellico, bússola ética adotada na obra</p>
+        </div>
+
+        <hr class="divider">
+
+        <!-- Trilhas por Perfil Profissional -->
+        <section class="profiles-section">
+            <h2 class="section-title">Seu Roteiro de Leitura Especializada</h2>
+            
+            <div class="profile-card">
+                <h3>🛡️ Para o Conselheiro Fiscal</h3>
+                <p>Domine a rotina completa de fiscalização mensal, emissão de parecer técnico e os mecanismos de blindagem contra responsabilidade civil e criminal.</p>
+            </div>
+
+            <div class="profile-card">
+                <h3>👔 Para o Síndico e Gestor</h3>
+                <p>Garanta o compliance absoluto na prestação de contas condominial e estruture controles gerenciais modernos face aos síndicos profissionais.</p>
+            </div>
+
+            <div class="profile-card">
+                <h3>⚖️ Para o Advogado</h3>
+                <p>Fundamentação jurisprudencial atualizada (2023-2026), limites da LGPD nas auditorias e o impacto da Inteligência Artificial na gestão.</p>
+            </div>
+
+            <div class="profile-card">
+                <h3>📊 Para o Contador e Auditor</h3>
+                <p>Auditoria de provisões trabalhistas, conciliação bancária fina, identificação de superávits fictícios e validação de indicadores ESG.</p>
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- Recursos e Ferramentas para Download/Acesso -->
+        <section class="links-section">
+            <h2 class="section-title">Amostras e Ferramentas Digitais</h2>
+            
+            <a href="https://github.com/" target="_blank" class="btn">
+                📋 Roteiro Prático de Fiscalização (Anexo 21)
+                <span class="btn-icon">→</span>
+            </a>
+            
+            <a href="https://github.com/" target="_blank" class="btn">
+                🔍 Guia de Verificação para Algoritmos e IA
+                <span class="btn-icon">→</span>
+            </a>
+            
+            <a href="https://github.com/" target="_blank" class="btn">
+                📑 Termo de Divergência com Efeito Exoneratório
+                <span class="btn-icon">→</span>
+            </a>
+            
+            <a href="https://github.com/" target="_blank" class="btn">
+                🏛️ Matriz de Riscos Condominiais (Cap. 8)
+                <span class="btn-icon">→</span>
+            </a>
+        </section>
+
+        <!-- Chamada para Ação Principal (Compra) -->
+        <a href="https://amazon.com.br" target="_blank" class="cta-btn">🛒 Adquirir Livro Completo</a>
+
+        <!-- Rodapé Legal e Créditos -->
+        <footer>
+            <p>Nota: Conteúdo técnico, jurídico e operacional atualizado rigorosamente conforme o ordenamento vigente até maio de 2026.</p>
+            <p style="margin-top: 15px; color: var(--text-secondary); font-weight: 500;">© 2026 José Erigutemberg Meneses de Lima</p>
+            <p>Edição do Autor • Blumenau/SC</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
